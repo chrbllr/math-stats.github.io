@@ -1,111 +1,140 @@
-<!-- index.html -->
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Math Hub</title>
+    <title>Estatística e Ciência de Dados</title>
     <style>
-        header {
-            position: fixed;
-            top: 0;
+        html, body {
+            height: 100%;
             width: 100%;
-            background-color: rgba(30, 41, 59, 0.9);
-            padding: 1rem 0;
-            text-align: center;
+            margin: 0;
+            padding: 0;
         }
         body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            transition: background 0.5s ease;
+            background-size: 100% 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        .hero-container {
+            max-width: 900px;
+            padding: 20px;
+        }
+        h1 {
+            font-size: 3.2rem;
+            font-weight: normal;
+            letter-spacing: 2px;
+            margin-bottom: 25px;
+            font-family: 'Georgia', 'Times New Roman', serif;
+            text-transform: uppercase;
+        }
+        .divider-line {
+            display: inline-block;
+            border-top: 5px solid rgba(41, 36, 31, 0.4);
+            border-bottom: 5px solid rgba(41, 36, 31, 0.4);
+            padding: 12px 25px;
+        }
+        p {
+            font-size: 1.1rem;
+            letter-spacing: 1.5px;
             margin: 0;
             font-family: 'Arial', sans-serif;
-            background-image: url('fundo3.png'); /* Image in root */
-            background-size: cover;
-            background-position: center;
-            color: #e2e8f0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-        }
-
-        
-
-        nav a {
-            color: #fbbf24;
-            text-decoration: none;
-            font-size: 1.2rem;
-            margin: 0 15px;
-            font-weight: bold;
-        }
-
-        nav a:hover {
-            color: #eab308;
-        }
-
-        .container {
-            margin-top: auto;
-            text-align: center;
-            background-color: rgba(30, 41, 59, 0.8);
-            padding: 2rem;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
-        }
-        footer {
-            margin-top: auto;            
-            text-align: center;
-            vertical-align: bottom;
-        }
-
-        h1 {
-            font-size: 3rem;
-            color: #fbbf24;
-            margin-bottom: 1rem;
-        }
-
-        p {
-            font-size: 1.2rem;
-            color: #94a3b8;
-            margin-bottom: 2rem;
-        }
-
-        .action-btn {
-            padding: 1rem 2rem;
-            font-size: 1.2rem;
-            font-weight: bold;
-            color: #1e293b;
-            background-color: #fbbf24;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            margin: 10px;
-            text-decoration: none;
-            display: inline-block;
-        }
-
-        .action-btn:hover {
-            background-color: #eab308;
+            text-transform: lowercase;
         }
     </style>
 </head>
 <body>
-    <header>
-        <nav>
-            <a href="#about">About</a>
-            <a href="#social">Social Media</a>
-        </nav>
-    </header>
-    
-    <div class="container">
-        <h1>Welcome to Math Hub</h1>
-        <p>Choose a category to get started:</p>
-        <a href="arithmetics.html" class="action-btn">Arithmetics</a>
-        <a href="algebra.html" class="action-btn">Algebra</a>
+    <div class="hero-container">
+        <h1 id="titulo-principal">Carregando...</h1>
+        <div class="divider-line">
+            <p id="subtitulo-secundario">verificando...</p>
+        </div>
     </div>
-    <footer>
-    <div class="container1">
-        <p style="font-size:0.8rem; color:#faf9f6;">Copyright <sup>&copy;</sup> 2025</p>
-    </div>
-    </footer>
+
+    <script>
+        const diasConfig = {
+            0: { 
+                fundo: "linear-gradient(rgba(255,255,255, 0.15), rgba(255,255,255, 0.85)), url('Domingo.png')", 
+                tipo: "imagem",
+                corTitulo: "#2F2923",    // Coloca a cor desejada para o Título (ex: verde escuro elegante)
+                corSubtitulo: "#8c5830", // Coloca a cor desejada para o Subtítulo (ex: tom nougat/terroso)
+                titulo: "Mathematics & Statistics",
+                subtitulo: "The language of patterns, uncertainty and discovery"
+            },
+            1: { 
+                fundo: "#FFD1DC", 
+                tipo: "cor", 
+                corTitulo: "#333333",
+                corSubtitulo: "#555555",
+                titulo: "Segunda-feira",
+                subtitulo: "tema aplicado para segunda-feira"
+            },
+            2: { 
+                fundo: "#FFDFBA", 
+                tipo: "cor", 
+                corTitulo: "#333333",
+                corSubtitulo: "#555555",
+                titulo: "Terça-feira",
+                subtitulo: "tema aplicado para terça-feira"
+            },
+            3: { 
+                fundo: "#FFFFBA", 
+                tipo: "cor", 
+                corTitulo: "#333333",
+                corSubtitulo: "#555555",
+                titulo: "Quarta-feira",
+                subtitulo: "tema aplicado para quarta-feira"
+            },
+            4: { 
+                fundo: "#BAFFC9", 
+                tipo: "cor", 
+                corTitulo: "#333333",
+                corSubtitulo: "#555555",
+                titulo: "Quinta-feira",
+                subtitulo: "tema aplicado para quinta-feira"
+            },
+            5: { 
+                fundo: "#BAE1FF", 
+                tipo: "cor", 
+                corTitulo: "#333333",
+                corSubtitulo: "#555555",
+                titulo: "Sexta-feira",
+                subtitulo: "tema aplicado para sexta-feira"
+            },
+            6: { 
+                fundo: "#E8C5FF", 
+                tipo: "cor", 
+                corTitulo: "#333333",
+                corSubtitulo: "#555555",
+                titulo: "Sábado",
+                subtitulo: "tema aplicado para sábado"
+            }
+        };
+
+        const hoje = new Date().getDay();
+        const configDia = diasConfig[hoje];
+
+        if (configDia.tipo === "imagem") {
+            document.body.style.backgroundImage = configDia.fundo;
+            document.body.style.backgroundColor = "transparent";
+        } else {
+            document.body.style.backgroundImage = "none";
+            document.body.style.backgroundColor = configDia.fundo;
+        }
+
+        // Aplica as cores separadamente no título e subtítulo
+        document.getElementById("titulo-principal").style.color = configDia.corTitulo;
+        document.getElementById("subtitulo-secundario").style.color = configDia.corSubtitulo;
+
+        // Insere os textos
+        document.getElementById("titulo-principal").innerText = configDia.titulo;
+        document.getElementById("subtitulo-secundario").innerText = configDia.subtitulo;
+    </script>
 </body>
 </html>
