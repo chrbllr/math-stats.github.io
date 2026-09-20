@@ -1,140 +1,644 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
     <title>Estatística e Ciência de Dados</title>
+
+
+    <!-- =====================================================
+         GOOGLE FONT — CORMORANT GARAMOND
+    ====================================================== -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+
     <style>
-        html, body {
-            height: 100%;
+
+        /* =====================================================
+           RESET
+        ====================================================== */
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+
             width: 100%;
+            height: 100%;
+
             margin: 0;
             padding: 0;
+
         }
+
+
+        /* =====================================================
+           BODY
+        ====================================================== */
+
         body {
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            transition: background 0.5s ease;
-            background-size: 100% 100%;
-            background-position: center;
-            background-repeat: no-repeat;
+
+            position: relative;
+
+            width: 100vw;
+            height: 100vh;
+
+            overflow: hidden;
+
+            font-family:
+                'Cormorant Garamond',
+                Georgia,
+                'Times New Roman',
+                serif;
+
+            background-color: #e8dfcf;
+
         }
-        .hero-container {
-            max-width: 900px;
-            padding: 20px;
-        }
-        h1 {
-            font-size: 3.2rem;
-            font-weight: normal;
-            letter-spacing: 2px;
-            margin-bottom: 25px;
-            font-family: 'Georgia', 'Times New Roman', serif;
-            text-transform: uppercase;
-        }
-        .divider-line {
-            display: inline-block;
-            border-top: 5px solid rgba(41, 36, 31, 0.4);
-            border-bottom: 5px solid rgba(41, 36, 31, 0.4);
-            padding: 12px 25px;
-        }
-        p {
-            font-size: 1.1rem;
-            letter-spacing: 1.5px;
+
+
+        /* =====================================================
+           IMAGEM DE FUNDO
+           
+           A imagem ocupa exatamente a viewport.
+        ====================================================== */
+
+        #imagem-fundo {
+
+            position: absolute;
+
+            top: 0;
+            left: 0;
+
+            width: 100vw;
+            height: 100vh;
+
             margin: 0;
-            font-family: 'Arial', sans-serif;
-            text-transform: lowercase;
+            padding: 0;
+
+            display: block;
+
+            object-fit: fill;
+
+            object-position: center;
+
+            z-index: 0;
+
         }
+
+
+        /* =====================================================
+           GRADIENTE SOBRE A IMAGEM
+           
+           ESTE É O GRADIENTE ORIGINAL DO SEU CÓDIGO.
+           
+           Parte superior:
+           rgba(255,255,255,0.15)
+           
+           Parte inferior:
+           rgba(255,255,255,0.85)
+        ====================================================== */
+
+        #overlay {
+
+            position: absolute;
+
+            top: 0;
+            left: 0;
+
+            width: 100vw;
+            height: 100vh;
+
+            margin: 0;
+            padding: 0;
+
+            background:
+                linear-gradient(
+                    to bottom,
+                    rgba(255, 255, 255, 0.15),
+                    rgba(255, 255, 255, 0.85)
+                );
+
+            z-index: 1;
+
+            pointer-events: none;
+
+        }
+
+
+        /* =====================================================
+           CONTEÚDO CENTRAL
+        ====================================================== */
+
+        .hero-container {
+
+            position: absolute;
+
+            top: 50%;
+            left: 50%;
+
+            transform:
+                translate(-50%, -50%);
+
+            width: 90vw;
+
+            max-width: 1100px;
+
+            text-align: center;
+
+            z-index: 2;
+
+        }
+
+
+        /* =====================================================
+           TÍTULO
+        ====================================================== */
+
+        h1 {
+
+            margin:
+                0 0 25px 0;
+
+            font-family:
+                'Cormorant Garamond',
+                Georgia,
+                'Times New Roman',
+                serif;
+
+            font-size:
+                clamp(2.2rem, 5vw, 4.2rem);
+
+            font-weight: 600;
+
+            font-style: normal;
+
+            line-height: 1.05;
+
+            letter-spacing: 2px;
+
+            color: #2F2923;
+
+            text-transform: uppercase;
+
+        }
+
+
+        /* =====================================================
+           DIVISOR
+        ====================================================== */
+
+        .divider-line {
+
+            display: inline-block;
+
+            padding:
+                10px 25px 8px 25px;
+
+            border-top:
+                2px solid
+                rgba(47, 41, 35, 0.45);
+
+            border-bottom:
+                2px solid
+                rgba(47, 41, 35, 0.45);
+
+        }
+
+
+        /* =====================================================
+           SUBTÍTULO
+        ====================================================== */
+
+        p {
+
+            margin: 0;
+
+            font-family:
+                'Cormorant Garamond',
+                Georgia,
+                'Times New Roman',
+                serif;
+
+            font-size:
+                clamp(1rem, 2vw, 1.4rem);
+
+            font-weight: 600;
+
+            font-style: normal;
+
+            line-height: 1.3;
+
+            letter-spacing: 0.6px;
+
+            color: #8c5830;
+
+            text-transform: none;
+
+        }
+
+
+        /* =====================================================
+           CELULAR
+        ====================================================== */
+
+        @media (max-width: 600px) {
+
+            .hero-container {
+
+                width: 92vw;
+
+            }
+
+            h1 {
+
+                font-size: 2.3rem;
+
+                letter-spacing: 1px;
+
+                margin-bottom: 20px;
+
+            }
+
+            .divider-line {
+
+                padding:
+                    8px 14px 7px 14px;
+
+                border-top-width: 1px;
+
+                border-bottom-width: 1px;
+
+            }
+
+            p {
+
+                font-size: 1.05rem;
+
+                letter-spacing: 0.3px;
+
+            }
+
+        }
+
     </style>
+
 </head>
+
+
 <body>
+
+
+    <!-- =====================================================
+         IMAGEM
+    ====================================================== -->
+
+    <img
+        id="imagem-fundo"
+        src="Domingo.png"
+        alt=""
+    >
+
+
+    <!-- =====================================================
+         GRADIENTE
+    ====================================================== -->
+
+    <div id="overlay"></div>
+
+
+    <!-- =====================================================
+         CONTEÚDO
+    ====================================================== -->
+
     <div class="hero-container">
-        <h1 id="titulo-principal">Carregando...</h1>
+
+        <h1 id="titulo-principal">
+            Carregando...
+        </h1>
+
         <div class="divider-line">
-            <p id="subtitulo-secundario">verificando...</p>
+
+            <p id="subtitulo-secundario">
+                verificando...
+            </p>
+
         </div>
+
     </div>
 
+
     <script>
+
+        /* =====================================================
+           CONFIGURAÇÃO DOS DIAS
+        ====================================================== */
+
         const diasConfig = {
-            0: { 
-                fundo: "linear-gradient(rgba(255,255,255, 0.15), rgba(255,255,255, 0.85)), url('Domingo.png')", 
-                tipo: "imagem",
-                corTitulo: "#2F2923",    // Coloca a cor desejada para o Título (ex: verde escuro elegante)
-                corSubtitulo: "#8c5830", // Coloca a cor desejada para o Subtítulo (ex: tom nougat/terroso)
-                titulo: "Mathematics & Statistics",
-                subtitulo: "The language of patterns, uncertainty and discovery"
+
+            0: {
+
+                imagem: "Domingo.png",
+
+                corTitulo: "#2F2923",
+
+                corSubtitulo: "#8c5830",
+
+                titulo:
+                    "Mathematics & Statistics",
+
+                subtitulo:
+                    "The language of patterns, uncertainty and discovery"
+
             },
-            1: { 
-                fundo: "linear-gradient(rgba(255,255,255, 0.15), rgba(255,255,255, 0.85)), url('Segunda.png')", 
-                tipo: "imagem",
-                corTitulo: "#2F2923",    // Coloca a cor desejada para o Título (ex: verde escuro elegante)
-                corSubtitulo: "#8c5830", // Coloca a cor desejada para o Subtítulo (ex: tom nougat/terroso)
-                titulo: "Mathematics & Statistics",
-                subtitulo: "The language of patterns, uncertainty and discovery"
+
+
+            1: {
+
+                imagem: "Segunda.png",
+
+                corTitulo: "#2F2923",
+
+                corSubtitulo: "#8c5830",
+
+                titulo:
+                    "Mathematics & Statistics",
+
+                subtitulo:
+                    "The language of patterns, uncertainty and discovery"
+
             },
-            2: { 
-                fundo: "#FFDFBA", 
-                tipo: "cor", 
+
+
+            2: {
+
+                imagem: null,
+
+                fundo: "#FFDFBA",
+
                 corTitulo: "#333333",
+
                 corSubtitulo: "#555555",
-                titulo: "Terça-feira",
-                subtitulo: "tema aplicado para terça-feira"
+
+                titulo:
+                    "Terça-feira",
+
+                subtitulo:
+                    "tema aplicado para terça-feira"
+
             },
-            3: { 
-                fundo: "#FFFFBA", 
-                tipo: "cor", 
+
+
+            3: {
+
+                imagem: null,
+
+                fundo: "#FFFFBA",
+
                 corTitulo: "#333333",
+
                 corSubtitulo: "#555555",
-                titulo: "Quarta-feira",
-                subtitulo: "tema aplicado para quarta-feira"
+
+                titulo:
+                    "Quarta-feira",
+
+                subtitulo:
+                    "tema aplicado para quarta-feira"
+
             },
-            4: { 
-                fundo: "#BAFFC9", 
-                tipo: "cor", 
+
+
+            4: {
+
+                imagem: null,
+
+                fundo: "#BAFFC9",
+
                 corTitulo: "#333333",
+
                 corSubtitulo: "#555555",
-                titulo: "Quinta-feira",
-                subtitulo: "tema aplicado para quinta-feira"
+
+                titulo:
+                    "Quinta-feira",
+
+                subtitulo:
+                    "tema aplicado para quinta-feira"
+
             },
-            5: { 
-                fundo: "#BAE1FF", 
-                tipo: "cor", 
+
+
+            5: {
+
+                imagem: null,
+
+                fundo: "#BAE1FF",
+
                 corTitulo: "#333333",
+
                 corSubtitulo: "#555555",
-                titulo: "Sexta-feira",
-                subtitulo: "tema aplicado para sexta-feira"
+
+                titulo:
+                    "Sexta-feira",
+
+                subtitulo:
+                    "tema aplicado para sexta-feira"
+
             },
-            6: { 
-                fundo: "#E8C5FF", 
-                tipo: "cor", 
+
+
+            6: {
+
+                imagem: null,
+
+                fundo: "#E8C5FF",
+
                 corTitulo: "#333333",
+
                 corSubtitulo: "#555555",
-                titulo: "Sábado",
-                subtitulo: "tema aplicado para sábado"
+
+                titulo:
+                    "Sábado",
+
+                subtitulo:
+                    "tema aplicado para sábado"
+
             }
+
         };
 
-        const hoje = new Date().getDay();
-        const configDia = diasConfig[hoje];
 
-        if (configDia.tipo === "imagem") {
-            document.body.style.backgroundImage = configDia.fundo;
-            document.body.style.backgroundColor = "transparent";
-        } else {
-            document.body.style.backgroundImage = "none";
-            document.body.style.backgroundColor = configDia.fundo;
+        /* =====================================================
+           ELEMENTOS
+        ====================================================== */
+
+        const imagem =
+            document.getElementById(
+                "imagem-fundo"
+            );
+
+        const overlay =
+            document.getElementById(
+                "overlay"
+            );
+
+        const titulo =
+            document.getElementById(
+                "titulo-principal"
+            );
+
+        const subtitulo =
+            document.getElementById(
+                "subtitulo-secundario"
+            );
+
+
+        /* =====================================================
+           DIA ATUAL
+        ====================================================== */
+
+        const hoje =
+            new Date().getDay();
+
+        const config =
+            diasConfig[hoje];
+
+
+        /* =====================================================
+           TEXTO
+        ====================================================== */
+
+        titulo.textContent =
+            config.titulo;
+
+        subtitulo.textContent =
+            config.subtitulo;
+
+
+        /* =====================================================
+           CORES DO TEXTO
+        ====================================================== */
+
+        titulo.style.color =
+            config.corTitulo;
+
+        subtitulo.style.color =
+            config.corSubtitulo;
+
+
+        /* =====================================================
+           IMAGEM OU COR
+        ====================================================== */
+
+        if (config.imagem) {
+
+            imagem.src =
+                config.imagem;
+
+            imagem.style.display =
+                "block";
+
+            overlay.style.display =
+                "block";
+
+            document.body.style.backgroundColor =
+                "transparent";
+
         }
 
-        // Aplica as cores separadamente no título e subtítulo
-        document.getElementById("titulo-principal").style.color = configDia.corTitulo;
-        document.getElementById("subtitulo-secundario").style.color = configDia.corSubtitulo;
+        else {
 
-        // Insere os textos
-        document.getElementById("titulo-principal").innerText = configDia.titulo;
-        document.getElementById("subtitulo-secundario").innerText = configDia.subtitulo;
+            imagem.style.display =
+                "none";
+
+            overlay.style.display =
+                "none";
+
+            document.body.style.backgroundColor =
+                config.fundo;
+
+        }
+
+
+        /* =====================================================
+           AJUSTE EXATO À TELA
+        ====================================================== */
+
+        function ajustarImagem() {
+
+            if (!config.imagem) {
+                return;
+            }
+
+            imagem.style.width =
+                window.innerWidth + "px";
+
+            imagem.style.height =
+                window.innerHeight + "px";
+
+            overlay.style.width =
+                window.innerWidth + "px";
+
+            overlay.style.height =
+                window.innerHeight + "px";
+
+        }
+
+
+        /* =====================================================
+           EXECUÇÃO INICIAL
+        ====================================================== */
+
+        ajustarImagem();
+
+
+        /* =====================================================
+           REDIMENSIONAMENTO
+        ====================================================== */
+
+        window.addEventListener(
+            "resize",
+            ajustarImagem
+        );
+
+
+        /* =====================================================
+           ORIENTAÇÃO DO DISPOSITIVO
+        ====================================================== */
+
+        window.addEventListener(
+            "orientationchange",
+            function () {
+
+                setTimeout(
+                    ajustarImagem,
+                    100
+                );
+
+            }
+        );
+
     </script>
+
 </body>
+
 </html>
